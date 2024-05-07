@@ -35,7 +35,25 @@ def main():
             num1 = float(input("Enter the first number: "))
             num2 = float(input("Enter the second number: "))
 # Display the result.
+            if choice == 1:
+                result = add(num1, num2)
+            elif choice == 2:
+                result = subtract(num1, num2)
+            elif choice == 3:
+                result = multiply(num1, num2)
+            else:
+                result = divide(num1, num2)
 
+            print(f"Result: {result}")
 # Ask the user if they want to perform another calculation.
-
+            another_calculation = input("Do you want to perform another calculation? (yes/no): ")
+            if another_calculation.lower() != "yes":
+                print("Thank you, Love You!!")
+                break
 # Handle Exceptions
+    except ValueError as e:
+        print(f"Error: {e}")
+        main()  # Restart the calculator if an error occurs
+
+if __name__ == "__main__":
+    main()
